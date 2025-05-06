@@ -6,14 +6,24 @@ const { Pool } = require('pg');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Configuração do PostgreSQL
+// Configuração do PostgreSQL Local
+// const pool = new Pool({
+//   user: 'postgres',
+//   host: 'localhost',
+//   database: 'eventos_db',
+//   password: '041213',  // Substitua pela sua senha real
+//   port: 5432,
+// });
+
+//Dev Remoto
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'eventos_db',
-  password: '041213',  // Substitua pela sua senha real
+  user: 'postgres.jhjcfhoevbvcwayurofh',
+  host: 'aws-0-sa-east-1.pooler.supabase.com',
+  database: 'postgres',
+  password: 'iWfoLXgrp7ly0CC8',  // Substitua pela sua senha real
   port: 5432,
 });
+
 
 // Middleware para parsing de JSON
 app.use(bodyParser.json());
